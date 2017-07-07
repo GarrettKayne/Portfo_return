@@ -32,12 +32,12 @@ c3 <- cbind(matrix(0,data_dim[1],1),as.matrix(sum_data),matrix(0,data_dim[1],dat
 
 c4 <- cbind(matrix(0,data_dim[1],1),matrix(0,data_dim[1],data_dim[2]),
         matrix(0,data_dim[1],data_dim[1]),A)
+c5 <- cblind(0,matrix(1,1,data_dim[2]),matrix(0,1,data_dim[1]),matrix(0,1,data_dim[1]))
+mat <- rbind(c1,c2,c3,c4,c5)
 
-mat <- rbind(c1,c2,c3,c4)
+dir <- matrix("<=",3*data_dim[1]+2,1)
 
-dir <- matrix("<=",3*data_dim[1]+1,1)
-
-rhs <- cbind(omega,matrix(0,1,3*data_dim[1]))
+rhs <- cbind(omega,matrix(0,1,3*data_dim[1]),1)
 bounds <- list(lower = list(ind = c(1L),val = c(-Inf)),
               upper = list(ind = c(2:(data_dim[2]+1)),val = rep(1,data_dim[2])))
 
